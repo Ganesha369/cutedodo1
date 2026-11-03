@@ -299,6 +299,37 @@ dialog.lb .lb-x{position:absolute;top:10px;right:10px;width:48px;height:48px;bor
 .cause small.note{display:block;margin-top:16px;font-size:.84rem}
 @media (max-width:900px){.cause{grid-template-columns:minmax(0,1fr)}}
 
+/* vet partner */
+.vet{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:center;background:var(--ink);color:#fff;border:3px solid var(--ink);border-radius:36px;box-shadow:8px 8px 0 var(--red);padding:clamp(24px,5vw,60px);position:relative;overflow:hidden}
+.vet::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,61,.22),transparent 65%);left:-160px;top:-120px;pointer-events:none}
+.vet-poster{position:relative;justify-self:center;width:min(380px,100%)}
+.vet-poster button{display:block;border:0;padding:0;background:none;border-radius:22px;overflow:hidden;border:4px solid var(--gold);box-shadow:10px 10px 0 rgba(0,0,0,.35);transform:rotate(-3deg);transition:transform .4s cubic-bezier(.3,1.4,.5,1)}
+.vet-poster button:hover{transform:rotate(0deg) scale(1.02)}
+.vet-poster .zoom-tag{right:14px;bottom:14px}
+.vet-steth{position:absolute;top:-18px;right:-10px;width:70px;height:70px;border-radius:50%;background:var(--gold);border:3px solid var(--ink);display:grid;place-items:center;box-shadow:4px 4px 0 rgba(0,0,0,.35);animation:floaty 5s ease-in-out infinite;z-index:2}
+.vet-steth svg{width:36px;height:36px}
+.vet-copy{position:relative;min-width:0}
+.vet-copy .kicker{color:var(--ink)}
+.vet-copy h2{color:#fff}
+.vet-copy .hl{color:var(--ink);white-space:nowrap}
+.vet-copy .lede{color:#C9CEF5}
+.doc{display:flex;align-items:center;gap:16px;margin:24px 0 18px;background:rgba(255,255,255,.07);border:2px solid rgba(255,200,61,.6);border-radius:20px;padding:16px 18px}
+.doc-av{flex:none;width:58px;height:58px;border-radius:50%;background:var(--mint);border:2.5px solid var(--gold);display:grid;place-items:center;font-size:1.7rem}
+.doc small{display:block;font-family:var(--font-m);font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.doc b{display:block;font-family:var(--font-d);font-size:1.6rem;line-height:1.1}
+.doc span{color:#C9CEF5;font-size:.95rem}
+.sos{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:var(--red);border:3px solid #fff;border-radius:22px;padding:14px 14px 14px 20px;box-shadow:6px 6px 0 rgba(0,0,0,.35)}
+.sos small{width:100%;font-family:var(--font-m);font-size:.72rem;font-weight:700;letter-spacing:.14em}
+.sos a.num{flex:1;min-width:0;font-family:var(--font-d);font-weight:800;font-size:clamp(1.6rem,3.6vw,2.4rem);color:#fff;text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+.sos button{flex:none;background:#fff;color:var(--ink);border:2.5px solid var(--ink);border-radius:12px;padding:10px 14px;font-weight:700}
+.vet-steps{list-style:none;display:grid;gap:10px;margin-top:22px;counter-reset:v}
+.vet-steps li{display:flex;gap:12px;align-items:baseline;color:#E1E4FF}
+.vet-steps li::before{counter-increment:v;content:counter(v);flex:none;width:26px;height:26px;border-radius:8px;background:var(--gold);color:var(--ink);font-family:var(--font-d);font-weight:800;display:grid;place-items:center;transform:translateY(5px)}
+.vet-note{display:block;margin-top:16px;font-size:.84rem;color:#A9AFE0}
+@media (max-width:900px){.vet{grid-template-columns:minmax(0,1fr)}.vet-poster{width:min(320px,88%)}}
+@media (max-width:560px){.sos a.num{flex-basis:100%;font-size:1.9rem}.sos button{width:100%}}
+@media (pointer:coarse){.sos button{min-height:48px}}
+
 /* buy */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;counter-reset:s}
 .step{background:var(--card);border:3px solid var(--ink);border-radius:var(--r);padding:26px 22px;box-shadow:var(--shadow);position:relative}
@@ -410,6 +441,7 @@ footer{padding:50px 0 40px}
       <li><a href="#tokenomics">Tokenomics</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#cause">Charity</a></li>
+      <li><a href="#vet">Vet care</a></li>
       <li><a href="#whitepaper">Whitepaper</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -628,7 +660,7 @@ footer{padding:50px 0 40px}
     <div role="tabpanel" id="pan-a" aria-labelledby="tab-a">
       <div class="road">
         <div class="phase rv"><div class="pin" style="background:var(--red);color:#fff">1</div><div class="box"><span class="when">Weeks 0 to month 2</span><h3>Transparency &amp; Community</h3><span class="badge now">Now</span><ul><li>Fair launch on pump.fun</li><li>Mint &amp; freeze revoked</li><li>Public wallet register</li><li>Telegram, X &amp; Discord</li><li>Monthly transparency notes</li></ul></div></div>
-        <div class="phase rv"><div class="pin" style="background:var(--gold)">2</div><div class="box"><span class="when">Months 2 to 6</span><h3>Charity &amp; Partnerships</h3><span class="badge">Next</span><ul><li>DODO Paws pilot</li><li>1 to 2 verified rescue partners</li><li>First holder vote on shelters</li><li>Brand &amp; creator partners</li></ul></div></div>
+        <div class="phase rv"><div class="pin" style="background:var(--gold)">2</div><div class="box"><span class="when">Months 2 to 6</span><h3>Charity &amp; Partnerships</h3><span class="badge">Next</span><ul><li>Vet partner Dr. Pradeep on board ✓</li><li>DODO Paws pilot</li><li>1 to 2 verified rescue partners</li><li>First holder vote on shelters</li><li>Brand &amp; creator partners</li></ul></div></div>
         <div class="phase rv"><div class="pin" style="background:var(--pink)">3</div><div class="box"><span class="when">Months 5 to 12</span><h3>Shop &amp; Utility</h3><span class="badge">Planned</span><ul><li>DODO Shop launch</li><li>DODO Club &amp; pet profiles</li><li>Optional $DODO checkout</li><li>CoinGecko &amp; CMC listings</li></ul></div></div>
         <div class="phase rv"><div class="pin" style="background:#B7B0FF">4</div><div class="box"><span class="when">Months 12 to 16</span><h3>Liquid NFT</h3><span class="badge">Planned</span><ul><li>DODO Genesis collection</li><li>Paws Pass membership</li><li>Club &amp; Shop perks for holders</li></ul></div></div>
         <div class="phase rv"><div class="pin" style="background:#8FD3FF">5</div><div class="box"><span class="when">Months 15 to 24+</span><h3>Metaverse Expansion</h3><span class="badge">Planned</span><ul><li>DODO World virtual pet shop</li><li>Liquid NFT gallery</li><li>Shelter partners worldwide</li></ul></div></div>
@@ -673,6 +705,38 @@ footer{padding:50px 0 40px}
       <div class="mile rv-pop"><span class="st">Upcoming</span><div class="em">🏡</div><strong>$1M</strong><b>Rescue &amp; shelter</b><p>Bigger support for rescue work.</p></div>
       <div class="mile rv-pop"><span class="st">Upcoming</span><div class="em">🌍</div><strong>$3M</strong><b>Beyond India</b><p>Shelters abroad, chosen by holders.</p></div>
       <div class="mile rv-pop"><span class="st">Upcoming</span><div class="em">🏆</div><strong>$5M</strong><b>Long-term fund</b><p>A lasting fund, if holders vote for it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VET PARTNER -->
+<section id="vet">
+  <div class="wrap">
+    <div class="vet rv">
+      <div class="vet-poster">
+        <span class="vet-steth" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1446" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a5 5 0 0 0 10 0V3"/><path d="M10 14v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/></svg></span>
+        <button type="button" data-zoom="assets/vet-partner.jpg" aria-label="Zoom the emergency care poster"><img src="assets/vet-partner.jpg" alt="CuteDoDo Stray Dogs Emergency Care poster with veterinary partner Dr. Pradeep and the emergency contact number" loading="lazy" width="1024" height="1280"><span class="zoom-tag">Tap to zoom</span></button>
+      </div>
+      <div class="vet-copy">
+        <span class="kicker">🩺 Our first real charity in action</span>
+        <h2>Hurt stray? <span class="hl">Dr. Pradeep</span> is on call.</h2>
+        <p class="lede">CuteDoDo now has its own veterinary partner. Dr. Pradeep is Dodo's own vet, and he is on call for stray dog emergencies.</p>
+        <div class="doc">
+          <span class="doc-av" aria-hidden="true">🐶</span>
+          <div><small>Veterinary partner</small><b>Dr. Pradeep</b><span>Dodo's own vet</span></div>
+        </div>
+        <div class="sos">
+          <small>EMERGENCY CONTACT</small>
+          <a class="num" href="tel:+918825437238">+91 88254 37238</a>
+          <button type="button" data-copy="+918825437238">Copy number</button>
+        </div>
+        <ol class="vet-steps">
+          <li>Keep the dog calm, and away from traffic if it is safe for you.</li>
+          <li>Call Dr. Pradeep and share your exact location.</li>
+          <li>Post an update in our Telegram so the pack knows.</li>
+        </ol>
+        <small class="vet-note">For stray dog emergencies only. Please keep the line free for real cases.</small>
+      </div>
     </div>
   </div>
 </section>
@@ -767,6 +831,7 @@ footer{padding:50px 0 40px}
       <details class="qa rv"><summary>How does the charity work?</summary><p>A public charity wallet holds 1.15% of supply. Donations go out at market-cap milestones, holders vote on the shelters, and every transfer is posted with Solscan proof and photos.</p></details>
       <details class="qa rv"><summary>What are Guardian wallets?</summary><p>10 wallets held by long-term pack members across India, Chile, Uruguay, the UK and the USA, together 8.75% of supply. They are public and committed to never selling.</p></details>
       <details class="qa rv"><summary>What is a Liquid NFT?</summary><p>The name for planned Dodo collectibles on Solana that come with membership perks and, later, ways to trade them more easily. They are not issued yet. Details are in the whitepaper.</p></details>
+      <details class="qa rv"><summary>I found an injured stray dog. What do I do?</summary><p>Call our veterinary partner Dr. Pradeep on +91 88254 37238 and share your exact location. Keep the dog calm and away from traffic if it is safe for you.</p></details>
       <details class="qa rv"><summary>Is my wallet safe when I connect?</summary><p>This site never asks for your seed phrase or private keys and never holds your funds. Your wallet signs every trade. If anyone asks for your seed phrase, it is a scam.</p></details>
     </div>
   </div>

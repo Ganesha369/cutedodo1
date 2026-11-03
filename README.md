@@ -16,6 +16,7 @@ site/
     whitepaper-snapshot.jpg          carousel card 1
     ecosystem-roadmap.jpg            carousel card 2
     liquid-nft-roadmap.jpg           carousel card 3
+    vet-partner.jpg                  Dr. Pradeep emergency care poster (Vet care section)
     CuteDoDo-Whitepaper-v2.3.pdf     downloadable whitepaper
 netlify.toml                         Netlify config (publishes site/)
 video-plan/design-package.md         parked plan for an optional scroll-driven hero video
@@ -55,6 +56,7 @@ The page picks the pair with the highest USD liquidity and refreshes every 60 se
 - [ ] **Confirm tokenomics and the wallet list.** The supply split and the 12 public wallets were carried over from the old site. Whitepaper v2.3 notes that allocations are not yet independently verified.
 - [ ] **Set absolute social preview URLs.** In `site/index.html`, update `og:image` and `og:url` (marked `DEPLOY STEP`) to the production domain, for example `https://www.cutedodo.com/assets/dodo.jpg`.
 - [ ] **Point the domain.** Move `cutedodo.com` DNS to the new host and enable HTTPS.
+- [ ] **Confirm the vet emergency number.** The Vet care section and FAQ list Dr. Pradeep's number, +91 88254 37238, as a tap-to-call link. Make sure he has agreed to it being public.
 - [ ] **Check every outbound link** (pump.fun swap, Telegram, X, Discord, DexScreener, Solscan) still points to the official accounts.
 
 ## Copy rules
