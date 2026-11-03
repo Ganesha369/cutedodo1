@@ -50,6 +50,16 @@ GET https://api.dexscreener.com/latest/dex/tokens/2e5bKRHpAixvgE6zUdTf7rigxCq662
 
 The page picks the pair with the highest USD liquidity and refreshes every 60 seconds. If the request fails, the boxes fall back to a "See chart" state. The code is the `load()` function near the bottom of `site/index.html`. No API key is needed; DexScreener allows about 300 requests per minute per client IP.
 
+The "What's happening right now" feed shows the last 8 trades from the PumpSwap pool via the public GeckoTerminal API (about 30 calls per minute per client, no key). It starts when the section comes into view and refreshes every 30 seconds while the tab is visible:
+
+```
+GET https://api.geckoterminal.com/api/v2/networks/solana/pools/5cZdup3LcQ9oQMt3mKfo2pQ5CNTMQUT3c2c4dLKN1AML/trades
+```
+
+The "Why Solana" network figures are static, copied from solana.com in November 2026. Solana's public RPC blocks browser requests, so making them live needs a small server-side proxy. Until then, refresh the four numbers every few months.
+
+The YouTube video only loads (from youtube-nocookie.com) when a visitor presses play.
+
 ## Before going live on the public domain
 
 - [ ] **Confirm the charity figure.** The page says "1% for pet welfare" in headlines (from the whitepaper) and shows the charity wallet at 1.15% of supply (from the old cutedodo.com). The team needs to settle on one wording.

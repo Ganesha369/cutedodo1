@@ -439,12 +439,85 @@ dialog.lb .lb-x{position:absolute;top:10px;right:10px;width:48px;height:48px;bor
 .final p{color:#E0E4FF;max-width:46ch;margin:0 auto 28px}
 .final .hero-ctas{justify-content:center}
 .final img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:5px solid #fff;outline:3px solid var(--ink);margin:0 auto 10px}
-footer{padding:50px 0 40px}
-.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;border-top:3px solid var(--ink);padding-top:26px}
-.foot nav{display:flex;gap:16px;flex-wrap:wrap}
-.foot nav a{font-weight:600;text-decoration:none}
-.foot nav a:hover{text-decoration:underline}
-.disc{font-size:.82rem;color:var(--ink-2);margin-top:22px;max-width:100ch}
+footer{background:var(--ink);color:#E1E4FF;margin-top:20px;padding:clamp(50px,7vw,80px) 0 calc(36px + env(safe-area-inset-bottom,0px));border-radius:40px 40px 0 0;overflow:hidden}
+.foot-top{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:32px}
+.foot-top .brand{color:#fff}
+.foot-top .brand small{color:var(--ink)}
+.foot-blurb{margin:14px 0 18px;color:#AEB3E0;max-width:34ch;font-size:.95rem}
+.foot-ca{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.2);border-radius:12px;padding:8px 8px 8px 12px;max-width:340px}
+.foot-ca code{font-family:var(--font-m);font-size:.74rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.foot-ca button{flex:none;background:var(--gold);color:var(--ink);border:0;border-radius:8px;padding:6px 10px;font-weight:700;font-size:.78rem}
+.foot-col h4{font-family:var(--font-m);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.foot-col ul{list-style:none;display:grid;gap:10px}
+.foot-col a{text-decoration:none;color:#E1E4FF;font-weight:500}
+.foot-col a:hover{color:#fff;text-decoration:underline}
+.wordmark{font-family:var(--font-d);font-weight:800;font-size:clamp(4rem,17vw,15rem);line-height:.8;letter-spacing:-.05em;margin:50px 0 0;background:linear-gradient(90deg,#9945FF,#FF77BC 40%,#FFC83D 70%,#14F195);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;text-align:center;user-select:none}
+.disc{font-size:.8rem;color:#9AA0D0;margin-top:28px;max-width:100ch;border-top:1px solid rgba(255,255,255,.15);padding-top:20px}
+@media (max-width:900px){.foot-top{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-top>div:first-child{grid-column:1/-1}}
+
+/* announcement pill */
+.announce{display:inline-flex;align-items:center;gap:10px;max-width:100%;text-decoration:none;color:#fff;background:rgba(14,20,70,.55);border:1.5px solid rgba(255,255,255,.35);border-radius:99px;padding:5px 14px 5px 5px;margin-bottom:16px;font-size:.9rem;font-weight:600;transition:background .2s}
+.announce:hover{background:rgba(14,20,70,.8)}
+.announce b{flex:none;background:var(--gold);color:var(--ink);font-family:var(--font-m);font-size:.68rem;letter-spacing:.1em;padding:5px 9px;border-radius:99px}
+.announce span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+
+/* live trades */
+.live-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:start}
+.pulse-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#14C47F;box-shadow:0 0 0 0 rgba(20,196,127,.6);animation:ping 2s infinite;margin-right:8px;vertical-align:middle}
+.feed{background:var(--card);border:3px solid var(--ink);border-radius:26px;box-shadow:var(--shadow);overflow:hidden}
+.feed-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:2px solid var(--ink);background:var(--bg-2);font-family:var(--font-m);font-size:.74rem;font-weight:700;letter-spacing:.08em}
+.feed-head a{color:var(--cobalt)}
+.feed ol{list-style:none;min-height:320px}
+.trade{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(14,20,70,.1);text-decoration:none;color:inherit;transition:background .2s}
+.trade:hover{background:var(--bg)}
+.trade.new{animation:slidein .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes slidein{from{opacity:0;transform:translateY(-10px);background:#FFF4CC}}
+.trade .k{font-family:var(--font-m);font-size:.7rem;font-weight:700;text-align:center;padding:5px 0;border-radius:8px;border:2px solid var(--ink)}
+.trade .k.buy{background:var(--mint)}
+.trade .k.sell{background:#FFB3B3}
+.trade b{display:block;font-size:.98rem;font-variant-numeric:tabular-nums}
+.trade small{display:block;font-family:var(--font-m);font-size:.72rem;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trade .usd{font-family:var(--font-d);font-weight:800;font-size:1.1rem;text-align:right;font-variant-numeric:tabular-nums}
+.trade .usd small{text-align:right}
+.feed-empty{padding:40px 18px;text-align:center;color:var(--ink-2)}
+.feed-sum{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.feed-sum div{background:var(--card);border:2.5px solid var(--ink);border-radius:16px;padding:14px}
+.feed-sum small{font-family:var(--font-m);font-size:.68rem;letter-spacing:.1em;color:var(--ink-2);display:block}
+.feed-sum strong{font-family:var(--font-d);font-size:1.6rem;font-variant-numeric:tabular-nums}
+@media (max-width:900px){.live-wrap{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.trade{grid-template-columns:50px minmax(0,1fr) auto;padding:11px 12px;gap:10px}}
+
+/* latest updates */
+.news-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.news{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 6px 22px;margin:30px -6px 0;scrollbar-width:thin}
+.news a{scroll-snap-align:start;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border:3px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:5px 5px 0 var(--ink);transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.news a:hover{transform:translateY(-5px)}
+.news .art{aspect-ratio:16/10;display:grid;place-items:center;font-size:3.4rem;border-bottom:3px solid var(--ink);overflow:hidden}
+.news .art img{width:100%;height:100%;object-fit:cover}
+.news .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.news time{font-family:var(--font-m);font-size:.72rem;font-weight:700;color:var(--cobalt);letter-spacing:.06em}
+.news h3{font-size:1.2rem}
+.news p{font-size:.92rem;color:var(--ink-2)}
+.news .tag{align-self:flex-start;margin-top:auto;font-family:var(--font-m);font-size:.66rem;font-weight:700;letter-spacing:.1em;padding:4px 8px;border-radius:7px;background:var(--bg-2)}
+.news-arrows{display:flex;gap:10px}
+.news-arrows button{width:46px;height:46px;border-radius:14px;border:2.5px solid var(--ink);background:var(--gold);box-shadow:3px 3px 0 var(--ink);display:grid;place-items:center}
+
+/* ways to help */
+.ways{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:34px}
+.way{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;background:var(--card);border:2.5px solid var(--ink);border-radius:20px;padding:20px;transition:transform .2s,box-shadow .2s;box-shadow:4px 4px 0 var(--ink)}
+.way:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.way .i{font-size:1.8rem}
+.way h3{font-size:1.15rem}
+.way p{font-size:.9rem;color:var(--ink-2);flex:1}
+.way span{font-weight:700;font-size:.9rem;color:var(--cobalt)}
+@media (max-width:900px){.ways{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.ways{grid-template-columns:minmax(0,1fr)}}
+
+/* mobile buy bar */
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:150;display:none;gap:10px;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:rgba(255,253,249,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:2.5px solid var(--ink);transform:translateY(110%);transition:transform .35s cubic-bezier(.3,1.2,.5,1)}
+.buybar.show{transform:none}
+.buybar .btn{flex:1;padding:12px 10px;box-shadow:3px 3px 0 var(--ink)}
+@media (max-width:760px){.buybar{display:flex}footer{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}.toast{bottom:calc(90px + env(safe-area-inset-bottom,0px))}}
 
 /* toast */
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-weight:700;z-index:300;transition:transform .35s cubic-bezier(.3,1.4,.5,1);border:2px solid var(--gold)}
@@ -504,6 +577,7 @@ footer{padding:50px 0 40px}
   <div class="wrap">
     <div class="hero-card">
       <div class="hero-copy">
+        <a class="announce" href="#vet"><b>NEW</b><span>Dr. Pradeep joins as our vet partner &rarr;</span></a>
         <div class="chips">
           <span class="chip"><b></b>Live on Solana</span>
           <span class="chip">0% tax</span>
@@ -715,6 +789,25 @@ footer{padding:50px 0 40px}
   </div>
 </section>
 
+<!-- LIVE TRADES -->
+<section id="live" style="padding-top:0">
+  <div class="wrap live-wrap">
+    <div>
+      <span class="kicker rv"><i class="pulse-dot" aria-hidden="true"></i>Live on-chain</span>
+      <h2 class="rv">What's happening <span class="hl hl-mint">right now</span>.</h2>
+      <p class="lede rv">Every $DODO buy and sell on Solana, straight from the PumpSwap pool. Tap any trade to see it on Solscan.</p>
+      <div class="feed-sum rv">
+        <div><small>BUYS IN THIS LIST</small><strong id="f-buys">...</strong></div>
+        <div><small>SELLS IN THIS LIST</small><strong id="f-sells">...</strong></div>
+      </div>
+    </div>
+    <div class="feed rv" aria-live="polite">
+      <div class="feed-head"><span><i class="pulse-dot" aria-hidden="true"></i><span id="f-status">LOADING TRADES</span></span><a href="https://www.geckoterminal.com/solana/pools/5cZdup3LcQ9oQMt3mKfo2pQ5CNTMQUT3c2c4dLKN1AML" target="_blank" rel="noopener">All trades &rarr;</a></div>
+      <ol id="feed"></ol>
+    </div>
+  </div>
+</section>
+
 <!-- WHY SOLANA -->
 <section class="sol-band" id="solana">
   <svg class="sol-wave" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
@@ -888,13 +981,42 @@ footer{padding:50px 0 40px}
   </div>
 </section>
 
+<!-- LATEST -->
+<section id="latest" style="padding-top:0">
+  <div class="wrap">
+    <div class="news-head">
+      <div>
+        <span class="kicker rv">📰 Pack updates</span>
+        <h2 class="rv">Keep up with <span class="hl">the latest</span>.</h2>
+      </div>
+      <div class="news-arrows rv">
+        <button type="button" id="n-prev" aria-label="Previous updates"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" id="n-next" aria-label="More updates"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="news" id="news">
+      <a href="#vet"><div class="art"><img src="assets/vet-partner-640.webp" alt="" loading="lazy" width="640" height="800" style="object-position:50% 12%"></div><div class="body"><time datetime="2026-11">NOV 2026</time><h3>Dr. Pradeep joins as our vet partner</h3><p>Dodo's own vet is now on call for stray dog emergencies. Our first real charity in action.</p><span class="tag">CHARITY</span></div></a>
+      <a href="#watch"><div class="art"><img src="https://i.ytimg.com/vi/54PdC2Rh8ec/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></div><div class="body"><time datetime="2026-11">NOV 2026</time><h3>CuteDoDo featured on YouTube</h3><p>CRYPTO EXPLORER breaks down the real dog, the mission and why $DODO lives on Solana.</p><span class="tag">MEDIA</span></div></a>
+      <a href="#whitepaper"><div class="art"><img src="assets/whitepaper-snapshot-640.webp" alt="" loading="lazy" width="640" height="800" style="object-position:50% 40%"></div><div class="body"><time datetime="2026-10-31">31 OCT 2026</time><h3>Whitepaper v2.3 is out</h3><p>The Liquid NFT, Metaverse and Global Animal Welfare Edition, with a phased roadmap.</p><span class="tag">DOCS</span></div></a>
+      <a href="https://dexscreener.com/solana/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener"><div class="art" style="background:linear-gradient(135deg,#9945FF,#14F195)">🚀</div><div class="body"><time datetime="2026-10-26">26 OCT 2026</time><h3>$DODO goes live on PumpSwap</h3><p>Fair launch on Solana. Mint and freeze authority revoked, 0% buy and sell tax.</p><span class="tag">LAUNCH</span></div></a>
+    </div>
+  </div>
+</section>
+
 <!-- COMMUNITY -->
 <section id="community" style="padding-top:0">
   <div class="wrap">
     <span class="kicker rv">🌍 Global pack</span>
     <h2 class="rv">Join the <span class="hl hl-mint">Dodo pack</span>.</h2>
-    <p class="lede rv">Launch news, memes and shelter votes all happen here.</p>
-    <div class="comm">
+    <p class="lede rv">Pack members in India, Chile, Uruguay, the UK and the USA, and growing. Pick how you want to help.</p>
+    <div class="ways">
+      <a class="way rv" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener"><span class="i" aria-hidden="true">💎</span><h3>Hold $DODO</h3><p>Join the holders who vote on which shelters get help.</p><span>Buy $DODO &rarr;</span></a>
+      <a class="way rv" href="https://t.me/+pjv_zrm5Cjc1MWNl" target="_blank" rel="noopener"><span class="i" aria-hidden="true">🎨</span><h3>Make memes</h3><p>Post Dodo memes and stickers. The best ones get shared.</p><span>Open Telegram &rarr;</span></a>
+      <a class="way rv" href="#vet"><span class="i" aria-hidden="true">🩺</span><h3>Report a stray</h3><p>Found a hurt dog? Call Dr. Pradeep with the location.</p><span>Vet care &rarr;</span></a>
+      <a class="way rv" href="https://x.com/CuteDODO_018" target="_blank" rel="noopener"><span class="i" aria-hidden="true">📣</span><h3>Spread the word</h3><p>Follow, repost and bring a friend into the pack.</p><span>Follow on X &rarr;</span></a>
+    </div>
+    <h3 class="rv" style="margin-top:56px;font-size:1.6rem">Find the pack online</h3>
+    <div class="comm" style="margin-top:20px">
       <a class="cm cm-tg rv" href="https://t.me/+pjv_zrm5Cjc1MWNl" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.6l-3.1 14.7c-.2 1-.8 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.8 13.2 2.2 11.8c-1-.3-1-1 .2-1.5l18-6.9c.8-.3 1.6.2 1.5 1.2z"/></svg>
         <h3>Telegram</h3><p>Chat with the pack 24/7. Memes, launch news and updates straight from VJDurga.</p><span>Join the chat &rarr;</span></a>
@@ -947,17 +1069,39 @@ footer{padding:50px 0 40px}
 
 <footer>
   <div class="wrap">
-    <div class="foot">
-      <a class="brand" href="#top"><img src="assets/dodo-480.webp" alt="" width="40" height="40">CuteDoDo <small>$DODO</small></a>
-      <nav aria-label="Footer">
-        <a href="https://dexscreener.com/solana/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">DexScreener</a>
-        <a href="https://pump.fun/coin/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">pump.fun</a>
-        <a href="https://solscan.io/token/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">Solscan</a>
-        <a href="https://t.me/+pjv_zrm5Cjc1MWNl" target="_blank" rel="noopener">Telegram</a>
-        <a href="https://x.com/CuteDODO_018" target="_blank" rel="noopener">X</a>
-        <a href="https://discord.gg/9f7bBxgRS9" target="_blank" rel="noopener">Discord</a>
-      </nav>
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="#top"><img src="assets/dodo-480.webp" alt="" width="40" height="40">CuteDoDo <small>$DODO</small></a>
+        <p class="foot-blurb">A real dog. A real cause. On Solana. Inspired by Dodo, a Shih Tzu from Chennai.</p>
+        <div class="foot-ca"><code>2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump</code><button type="button" data-copy="2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump">Copy CA</button></div>
+      </div>
+      <nav class="foot-col" aria-label="Token"><h4>Token</h4><ul>
+        <li><a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">Buy $DODO</a></li>
+        <li><a href="https://dexscreener.com/solana/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">DexScreener</a></li>
+        <li><a href="https://pump.fun/coin/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">pump.fun</a></li>
+        <li><a href="https://solscan.io/token/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">Solscan</a></li>
+      </ul></nav>
+      <nav class="foot-col" aria-label="Learn"><h4>Learn</h4><ul>
+        <li><a href="#story">Start here</a></li>
+        <li><a href="#tokenomics">Tokenomics</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="assets/CuteDoDo-Whitepaper-v2.3.pdf" download>Whitepaper</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul></nav>
+      <nav class="foot-col" aria-label="Charity"><h4>Charity</h4><ul>
+        <li><a href="#cause">Milestones</a></li>
+        <li><a href="#vet">Vet care</a></li>
+        <li><a href="#wallets">Public wallets</a></li>
+        <li><a href="https://solscan.io/account/ASNxk6W4NhkUtYwyqotmtLx4FzTcgNLhQEvN6mFcsAX4" target="_blank" rel="noopener">Charity wallet</a></li>
+      </ul></nav>
+      <nav class="foot-col" aria-label="Community"><h4>Community</h4><ul>
+        <li><a href="https://t.me/+pjv_zrm5Cjc1MWNl" target="_blank" rel="noopener">Telegram</a></li>
+        <li><a href="https://x.com/CuteDODO_018" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://discord.gg/9f7bBxgRS9" target="_blank" rel="noopener">Discord</a></li>
+        <li><a href="https://youtu.be/54PdC2Rh8ec" target="_blank" rel="noopener">YouTube</a></li>
+      </ul></nav>
     </div>
+    <div class="wordmark" aria-hidden="true">CuteDoDo</div>
     <p class="disc">$DODO is a meme token with no intrinsic value or expectation of financial return. Cryptoassets are high risk: their value can drop to zero, and products described on this site and in the whitepaper may never launch. Nothing here is financial advice. Always do your own research. &copy; 2026 CuteDoDo.</p>
   </div>
 </footer>
@@ -966,6 +1110,10 @@ footer{padding:50px 0 40px}
   <button class="lb-x" type="button" aria-label="Close">&times;</button>
   <img id="lb-img" src="" alt="">
 </dialog>
+<div class="buybar" id="buybar">
+  <a class="btn btn-red" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">Buy $DODO</a>
+  <button class="btn" type="button" data-copy="2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump">Copy CA</button>
+</div>
 <div class="toast" id="toast" role="status">Copied! 🐾</div>
 
 <script>
@@ -1140,6 +1288,54 @@ footer{padding:50px 0 40px}
     }), { threshold: .5 });
     counters.forEach(el => co.observe(el));
   }
+
+  // live trades feed (GeckoTerminal, public, no key)
+  const POOL = "5cZdup3LcQ9oQMt3mKfo2pQ5CNTMQUT3c2c4dLKN1AML";
+  const feed = document.getElementById("feed"), fStatus = document.getElementById("f-status");
+  const seen = new Set();
+  const short = n => n >= 1e6 ? (n / 1e6).toFixed(2) + "M" : n >= 1e3 ? (n / 1e3).toFixed(1) + "K" : n.toFixed(0);
+  const ago = t => { const s = Math.max(0, (Date.now() - new Date(t)) / 1000); return s < 60 ? Math.floor(s) + "s ago" : s < 3600 ? Math.floor(s / 60) + "m ago" : s < 86400 ? Math.floor(s / 3600) + "h ago" : Math.floor(s / 86400) + "d ago"; };
+  async function loadTrades() {
+    try {
+      const r = await fetch(`https://api.geckoterminal.com/api/v2/networks/solana/pools/${POOL}/trades`, { headers: { Accept: "application/json" } });
+      if (!r.ok) throw 0;
+      const rows = ((await r.json()).data || []).slice(0, 8).map(d => d.attributes);
+      const first = seen.size === 0;
+      feed.replaceChildren(...rows.map(a => {
+        const buy = a.kind === "buy", amt = +(buy ? a.to_token_amount : a.from_token_amount), usd = +a.volume_in_usd;
+        const li = document.createElement("li"), el = document.createElement("a");
+        el.className = "trade" + (!first && !seen.has(a.tx_hash) ? " new" : "");
+        el.href = "https://solscan.io/tx/" + a.tx_hash; el.target = "_blank"; el.rel = "noopener";
+        el.innerHTML = `<span class="k ${buy ? "buy" : "sell"}">${buy ? "BUY" : "SELL"}</span><span style="min-width:0"><b>${short(amt)} $DODO</b><small>${a.tx_from_address.slice(0, 4)}...${a.tx_from_address.slice(-4)} &middot; ${ago(a.block_timestamp)}</small></span><span class="usd">$${usd < 1 ? usd.toFixed(2) : usd.toLocaleString("en-US", { maximumFractionDigits: 0 })}<small>USD</small></span>`;
+        li.appendChild(el); seen.add(a.tx_hash); return li;
+      }));
+      if (!rows.length) feed.innerHTML = '<li class="feed-empty">No trades yet. Be the first!</li>';
+      document.getElementById("f-buys").textContent = rows.filter(a => a.kind === "buy").length;
+      document.getElementById("f-sells").textContent = rows.filter(a => a.kind !== "buy").length;
+      fStatus.textContent = "LIVE · UPDATES EVERY 30S";
+    } catch {
+      if (!feed.children.length) feed.innerHTML = '<li class="feed-empty">Live trades are not available right now. Open the full list for the latest.</li>';
+      fStatus.textContent = "OFFLINE";
+      ["f-buys", "f-sells"].forEach(id => { const e = document.getElementById(id); if (e.textContent === "...") e.textContent = "-"; });
+    }
+  }
+  let tradesOn = false;
+  new IntersectionObserver(es => { if (es[0].isIntersecting && !tradesOn) { tradesOn = true; loadTrades(); setInterval(() => { if (!document.hidden) loadTrades(); }, 30000); } }, { rootMargin: "400px" }).observe(feed);
+
+  // updates carousel arrows
+  const news = document.getElementById("news");
+  const nStep = () => news.firstElementChild.getBoundingClientRect().width + 16;
+  document.getElementById("n-prev").addEventListener("click", () => news.scrollBy({ left: -nStep(), behavior: reduce.matches ? "auto" : "smooth" }));
+  document.getElementById("n-next").addEventListener("click", () => news.scrollBy({ left: nStep(), behavior: reduce.matches ? "auto" : "smooth" }));
+
+  // mobile buy bar: show after the hero, hide over the final CTA and footer
+  const buybar = document.getElementById("buybar"), heroEl = document.querySelector(".hero"), finalEl = document.querySelector(".final");
+  const setBar = () => {
+    const pastHero = heroEl.getBoundingClientRect().bottom < 0, atEnd = finalEl.getBoundingClientRect().top < innerHeight;
+    buybar.classList.toggle("show", pastHero && !atEnd);
+  };
+  addEventListener("scroll", setBar, { passive: true });
+  setBar();
 
   // live market data
   const fmt = (n, d = 1) => n >= 1e9 ? "$" + (n / 1e9).toFixed(d) + "B" : n >= 1e6 ? "$" + (n / 1e6).toFixed(d) + "M" : n >= 1e3 ? "$" + (n / 1e3).toFixed(d) + "K" : "$" + n.toFixed(0);
