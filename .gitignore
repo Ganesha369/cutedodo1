@@ -1,0 +1,16 @@
+# Local tooling and deploy state
+.claude/
+.netlify/
+node_modules/
+
+# Raw source material (web-ready copies live in site/assets)
+10k-websites-skill/
+whitepaper/
+milestone/
+liquid nft/
+CuteDoDo_dog.jpeg
+
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
