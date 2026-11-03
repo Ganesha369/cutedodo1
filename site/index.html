@@ -39,7 +39,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:90px;overflow-x:clip}
 body{font-family:var(--font-b);color:var(--ink);background:var(--bg);line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 button{font:inherit;cursor:pointer;color:inherit}
 .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;z-index:200}
@@ -118,7 +118,7 @@ section{padding:clamp(70px,10vw,120px) 0}
 .hero-ctas .btn{border-color:var(--ink)}
 
 .hero-art{position:relative;z-index:2;display:grid;place-items:center;min-height:440px}
-.sticker{position:relative;width:min(380px,82%);aspect-ratio:896/930;border-radius:46% 54% 44% 56%/52% 44% 56% 48%;border:10px solid #FFFDF9;outline:3px solid var(--ink);box-shadow:12px 14px 0 var(--ink);overflow:hidden;transform:rotate(3deg);animation:bob 6s ease-in-out infinite;background:#ddd}
+.sticker{position:relative;width:min(380px,82%);aspect-ratio:896/940;border-radius:46% 54% 44% 56%/52% 44% 56% 48%;border:10px solid #FFFDF9;outline:3px solid var(--ink);box-shadow:12px 14px 0 var(--ink);overflow:hidden;transform:rotate(3deg);animation:bob 6s ease-in-out infinite;background:#ddd}
 .sticker img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
 @keyframes bob{50%{transform:rotate(-1deg) translateY(-12px)}}
 .orbit{position:absolute;width:min(500px,108%);aspect-ratio:1;animation:spin 28s linear infinite;pointer-events:none}
@@ -143,7 +143,7 @@ section{padding:clamp(70px,10vw,120px) 0}
 @media (max-width:900px){
   .hero-card{grid-template-columns:minmax(0,1fr);text-align:left}
   .hero-art{min-height:330px;order:-1}
-  .sticker{width:min(300px,74%)}
+  .sticker{width:min(320px,86%)}
   .orbit{width:min(390px,100%)}
   .live{grid-template-columns:repeat(2,1fr)}
 }
@@ -197,11 +197,11 @@ dialog.lb .lb-x{position:absolute;top:10px;right:10px;width:48px;height:48px;bor
 /* about */
 .about{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
 .tile{background:var(--card);border:3px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(22px,3vw,34px);position:relative;overflow:hidden}
-.t-story{grid-column:span 7;grid-row:span 2}
-.t-photo{grid-column:span 5;padding:0;background:var(--pink);min-height:320px}
+.t-story{grid-column:1/8;grid-row:1}
+.t-photo{grid-column:8/13;grid-row:1/3;padding:0;background:var(--pink);min-height:480px}
 .t-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;position:absolute;inset:0}
 .t-photo .tag{position:absolute;left:14px;bottom:14px;background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:8px 12px;font-family:var(--font-m);font-size:.76rem;font-weight:700}
-.t-quote{grid-column:span 5;background:var(--gold)}
+.t-quote{grid-column:1/8;grid-row:2;background:var(--gold)}
 .t-quote p{font-family:var(--font-d);font-weight:600;font-size:1.3rem;line-height:1.3}
 .t-quote cite{display:block;margin-top:12px;font-style:normal;font-family:var(--font-m);font-size:.78rem}
 .t-story p{color:var(--ink-2);margin-top:14px;max-width:60ch}
@@ -213,7 +213,8 @@ dialog.lb .lb-x{position:absolute;top:10px;right:10px;width:48px;height:48px;bor
 .fact h3{font-size:1.2rem;margin-bottom:6px}
 .fact p{font-size:.95rem;color:var(--ink-2)}
 @media (max-width:900px){
-  .t-story,.t-photo,.t-quote{grid-column:1/-1}
+  .t-story,.t-photo,.t-quote{grid-column:1/-1;grid-row:auto}
+  .t-photo{min-height:0;aspect-ratio:4/5;max-width:100%}
   .facts{grid-template-columns:1fr 1fr}
 }
 @media (max-width:520px){.facts{grid-template-columns:1fr}}
@@ -432,7 +433,7 @@ footer{padding:50px 0 40px}
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="CuteDoDo home">
-      <img src="assets/dodo.jpg" alt="" width="40" height="40">
+      <img src="assets/dodo-480.webp" alt="" width="40" height="40">
       CuteDoDo <small>$DODO</small>
     </a>
     <ul id="menu">
@@ -487,7 +488,7 @@ footer{padding:50px 0 40px}
           <defs><path id="circ" d="M250,250 m-215,0 a215,215 0 1,1 430,0 a215,215 0 1,1 -430,0"/></defs>
           <text><textPath href="#circ">$DODO &#x2022; A REAL DOG &#x2022; A REAL CAUSE &#x2022; ON SOLANA &#x2022; EVERY PAW DESERVES LOVE &#x2022; </textPath></text>
         </svg>
-        <div class="sticker"><img src="assets/dodo.jpg" alt="" width="896" height="1200" fetchpriority="high"></div>
+        <div class="sticker"><img src="assets/dodo-crop.jpg" srcset="assets/dodo-480.webp 480w, assets/dodo-896.webp 896w" sizes="(max-width:900px) 300px, 380px" alt="" width="896" height="940" fetchpriority="high"></div>
         <div class="float f1">wen walk? 🐾</div>
         <div class="float f2">much wholesome</div>
         <div class="float f3">🦴</div>
@@ -525,7 +526,7 @@ footer{padding:50px 0 40px}
     <div class="carousel rv" id="carousel" role="region" aria-roledescription="carousel" aria-label="CuteDoDo explained in three cards">
       <div class="c-track" id="track">
         <article class="slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
-          <div class="slide-img"><button type="button" data-zoom="assets/whitepaper-snapshot.jpg" aria-label="Zoom whitepaper cover card"><img src="assets/whitepaper-snapshot.jpg" alt="CuteDoDo Whitepaper v2.3 cover: Liquid NFT, Metaverse and Global Animal Welfare Edition" loading="lazy" width="1122" height="1402"><span class="zoom-tag">Tap to zoom</span></button></div>
+          <div class="slide-img"><button type="button" data-zoom="assets/whitepaper-snapshot-1122.webp" aria-label="Zoom whitepaper cover card"><img src="assets/whitepaper-snapshot.jpg" srcset="assets/whitepaper-snapshot-640.webp 640w, assets/whitepaper-snapshot-1122.webp 1122w" sizes="(max-width:860px) 300px, 450px" alt="CuteDoDo Whitepaper v2.3 cover: Liquid NFT, Metaverse and Global Animal Welfare Edition" loading="lazy" width="1122" height="1402"><span class="zoom-tag">Tap to zoom</span></button></div>
           <div class="slide-copy">
             <span class="num">01 / 03 &middot; THE BIG IDEA</span>
             <h3>Pet &times; Web3 &times; Metaverse &times; Animal welfare.</h3>
@@ -538,7 +539,7 @@ footer{padding:50px 0 40px}
           </div>
         </article>
         <article class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
-          <div class="slide-img"><button type="button" data-zoom="assets/ecosystem-roadmap.jpg" aria-label="Zoom ecosystem and roadmap card"><img src="assets/ecosystem-roadmap.jpg" alt="CuteDoDo whitepaper snapshot: ecosystem highlights, global welfare commitment and phased roadmap" loading="lazy" width="1122" height="1402"><span class="zoom-tag">Tap to zoom</span></button></div>
+          <div class="slide-img"><button type="button" data-zoom="assets/ecosystem-roadmap-1122.webp" aria-label="Zoom ecosystem and roadmap card"><img src="assets/ecosystem-roadmap.jpg" srcset="assets/ecosystem-roadmap-640.webp 640w, assets/ecosystem-roadmap-1122.webp 1122w" sizes="(max-width:860px) 300px, 450px" alt="CuteDoDo whitepaper snapshot: ecosystem highlights, global welfare commitment and phased roadmap" loading="lazy" width="1122" height="1402"><span class="zoom-tag">Tap to zoom</span></button></div>
           <div class="slide-copy">
             <span class="num">02 / 03 &middot; THE ECOSYSTEM</span>
             <h3>Five ways Dodo shows up for you.</h3>
@@ -551,7 +552,7 @@ footer{padding:50px 0 40px}
           </div>
         </article>
         <article class="slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
-          <div class="slide-img"><button type="button" data-zoom="assets/liquid-nft-roadmap.jpg" aria-label="Zoom Liquid NFT roadmap card"><img src="assets/liquid-nft-roadmap.jpg" alt="CuteDoDo Liquid NFT roadmap: a phased 16-week plan" loading="lazy" width="1122" height="1402"><span class="zoom-tag">Tap to zoom</span></button></div>
+          <div class="slide-img"><button type="button" data-zoom="assets/liquid-nft-roadmap-1122.webp" aria-label="Zoom Liquid NFT roadmap card"><img src="assets/liquid-nft-roadmap.jpg" srcset="assets/liquid-nft-roadmap-640.webp 640w, assets/liquid-nft-roadmap-1122.webp 1122w" sizes="(max-width:860px) 300px, 450px" alt="CuteDoDo Liquid NFT roadmap: a phased 16-week plan" loading="lazy" width="1122" height="1402"><span class="zoom-tag">Tap to zoom</span></button></div>
           <div class="slide-copy">
             <span class="num">03 / 03 &middot; LIQUID NFT</span>
             <h3>A 16-week plan for Dodo NFTs.</h3>
@@ -588,7 +589,7 @@ footer{padding:50px 0 40px}
         <p>Seeing how much joy one small dog can bring, the family and close friends decided to do something bigger. <strong>$DODO is not for quick pumps.</strong> It is for a long-term mission: water for thirsty street dogs, food for hungry ones, and shelter for those who have none.</p>
         <p>Real, doxxed dog lovers from different countries stand behind it, connected through VJDurga's journey across 7 nations and web3. Guardian wallets never sell. Donation wallets show every bit of help that reaches the dogs.</p>
       </div>
-      <div class="tile t-photo rv-pop"><img src="assets/dodo.jpg" alt="Dodo the Shih Tzu wearing a plaid vest and a red bow tie, tongue out" loading="lazy" width="896" height="1200"><span class="tag">📍 Chennai, India</span></div>
+      <div class="tile t-photo rv-pop"><img src="assets/dodo-crop.jpg" srcset="assets/dodo-480.webp 480w, assets/dodo-896.webp 896w" sizes="(max-width:900px) 92vw, 440px" alt="Dodo the Shih Tzu wearing a plaid vest and a red bow tie, tongue out" loading="lazy" width="896" height="940"><span class="tag">📍 Chennai, India</span></div>
       <div class="tile t-quote rv">
         <p>"This is a family dog's story turning into hope for thousands of other dogs."</p>
         <cite>VJDURGA FAMILY</cite>
@@ -715,7 +716,7 @@ footer{padding:50px 0 40px}
     <div class="vet rv">
       <div class="vet-poster">
         <span class="vet-steth" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1446" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a5 5 0 0 0 10 0V3"/><path d="M10 14v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/></svg></span>
-        <button type="button" data-zoom="assets/vet-partner.jpg" aria-label="Zoom the emergency care poster"><img src="assets/vet-partner.jpg" alt="CuteDoDo Stray Dogs Emergency Care poster with veterinary partner Dr. Pradeep and the emergency contact number" loading="lazy" width="1024" height="1280"><span class="zoom-tag">Tap to zoom</span></button>
+        <button type="button" data-zoom="assets/vet-partner-1024.webp" aria-label="Zoom the emergency care poster"><img src="assets/vet-partner.jpg" srcset="assets/vet-partner-640.webp 640w, assets/vet-partner-1024.webp 1024w" sizes="(max-width:900px) 320px, 380px" alt="CuteDoDo Stray Dogs Emergency Care poster with veterinary partner Dr. Pradeep and the emergency contact number" loading="lazy" width="1024" height="1280"><span class="zoom-tag">Tap to zoom</span></button>
       </div>
       <div class="vet-copy">
         <span class="kicker">🩺 Our first real charity in action</span>
@@ -766,9 +767,9 @@ footer{padding:50px 0 40px}
   <div class="wrap">
     <div class="wp rv">
       <div class="wp-stack" aria-hidden="true">
-        <img src="assets/ecosystem-roadmap.jpg" alt="" loading="lazy" width="1122" height="1402">
-        <img src="assets/whitepaper-snapshot.jpg" alt="" loading="lazy" width="1122" height="1402">
-        <img src="assets/liquid-nft-roadmap.jpg" alt="" loading="lazy" width="1122" height="1402">
+        <img src="assets/ecosystem-roadmap.jpg" srcset="assets/ecosystem-roadmap-640.webp 640w, assets/ecosystem-roadmap-1122.webp 1122w" sizes="(max-width:480px) 160px, 300px" alt="" loading="lazy" width="1122" height="1402">
+        <img src="assets/whitepaper-snapshot.jpg" srcset="assets/whitepaper-snapshot-640.webp 640w, assets/whitepaper-snapshot-1122.webp 1122w" sizes="(max-width:480px) 160px, 300px" alt="" loading="lazy" width="1122" height="1402">
+        <img src="assets/liquid-nft-roadmap.jpg" srcset="assets/liquid-nft-roadmap-640.webp 640w, assets/liquid-nft-roadmap-1122.webp 1122w" sizes="(max-width:480px) 160px, 300px" alt="" loading="lazy" width="1122" height="1402">
       </div>
       <div>
         <span class="kicker">📄 Whitepaper v2.3</span>
@@ -841,7 +842,7 @@ footer{padding:50px 0 40px}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="final rv">
-      <img src="assets/dodo.jpg" alt="" loading="lazy" width="120" height="120">
+      <img src="assets/dodo-480.webp" alt="" loading="lazy" width="120" height="120">
       <h2>Every paw deserves love.</h2>
       <p>Grab some $DODO, join the pack, and help a real dog's story feed thousands of others.</p>
       <div class="hero-ctas">
@@ -856,7 +857,7 @@ footer{padding:50px 0 40px}
 <footer>
   <div class="wrap">
     <div class="foot">
-      <a class="brand" href="#top"><img src="assets/dodo.jpg" alt="" width="40" height="40">CuteDoDo <small>$DODO</small></a>
+      <a class="brand" href="#top"><img src="assets/dodo-480.webp" alt="" width="40" height="40">CuteDoDo <small>$DODO</small></a>
       <nav aria-label="Footer">
         <a href="https://dexscreener.com/solana/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">DexScreener</a>
         <a href="https://pump.fun/coin/2e5bKRHpAixvgE6zUdTf7rigxCq662zq7xvN8Dympump" target="_blank" rel="noopener">pump.fun</a>
