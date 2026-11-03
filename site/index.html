@@ -300,6 +300,47 @@ dialog.lb .lb-x{position:absolute;top:10px;right:10px;width:48px;height:48px;bor
 .cause small.note{display:block;margin-top:16px;font-size:.84rem}
 @media (max-width:900px){.cause{grid-template-columns:minmax(0,1fr)}}
 
+/* watch (video) */
+.watch{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.9fr);gap:clamp(24px,4vw,48px);align-items:center;margin-top:36px}
+.vid{position:relative;border-radius:28px;padding:4px;background:linear-gradient(135deg,#9945FF,#FF77BC 45%,#14F195);box-shadow:8px 8px 0 var(--ink)}
+.vid-in{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:var(--ink)}
+.vid-in button{all:unset;cursor:pointer;position:absolute;inset:0;display:block}
+.vid-in button:focus-visible{outline:3px solid var(--gold);outline-offset:-6px}
+.vid-in img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s}
+.vid-in button:hover img{transform:scale(1.04);filter:brightness(.8)}
+.vid-in iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;left:50%;top:50%;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:var(--red);border:4px solid #fff;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(255,59,59,.6);animation:pulse 2.2s infinite}
+.play svg{width:34px;height:34px;margin-left:5px;fill:#fff}
+@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
+.vid-tag{position:absolute;left:16px;top:16px;background:rgba(14,20,70,.82);color:#fff;font-family:var(--font-m);font-size:.72rem;font-weight:700;letter-spacing:.08em;padding:7px 11px;border-radius:10px;backdrop-filter:blur(6px)}
+.watch-copy h3{font-size:clamp(1.6rem,2.6vw,2.2rem);margin-bottom:12px}
+.watch-copy p{color:var(--ink-2);margin-bottom:18px}
+.by{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-weight:600}
+.by i{width:44px;height:44px;border-radius:50%;background:var(--red);border:2.5px solid var(--ink);display:grid;place-items:center;font-style:normal;color:#fff;font-size:1.1rem}
+.by small{display:block;font-family:var(--font-m);font-size:.7rem;color:var(--ink-2);letter-spacing:.08em}
+@media (max-width:900px){.watch{grid-template-columns:minmax(0,1fr)}.play{width:72px;height:72px;margin:-36px 0 0 -36px}.play svg{width:26px;height:26px}}
+
+/* why solana */
+.sol-band{position:relative;background:#0B0B1E;color:#fff;border-radius:40px;margin-inline:16px;overflow:hidden;padding-block:clamp(60px,9vw,110px)}
+.sol-band::before{content:"";position:absolute;inset:-20%;background:radial-gradient(40% 50% at 15% 20%,rgba(153,69,255,.45),transparent 70%),radial-gradient(35% 45% at 90% 85%,rgba(20,241,149,.32),transparent 70%);animation:solglow 18s ease-in-out infinite alternate;pointer-events:none}
+@keyframes solglow{to{transform:translate(4%,-3%) rotate(6deg)}}
+.sol-band .wrap{position:relative}
+.sol-wave{position:absolute;left:0;right:0;top:46%;width:100%;height:220px;opacity:.55;pointer-events:none}
+.sol-wave path{fill:none;stroke-width:2;stroke-dasharray:6 10;animation:dash 30s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-800}}
+.sol-band .kicker{color:var(--ink)}
+.sol-band h2 .grad{background:linear-gradient(90deg,#9945FF,#14F195);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sol-band .lede{color:#C4C6E6}
+.sol-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:44px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);border-radius:24px;overflow:hidden}
+.sol-stat{background:rgba(11,11,30,.86);padding:26px 22px;backdrop-filter:blur(6px)}
+.sol-stat strong{display:block;font-family:var(--font-d);font-weight:800;font-size:clamp(1.9rem,3.6vw,3rem);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.sol-stat span{display:block;margin-top:10px;color:#AEB1D6;font-size:.95rem}
+.sol-perks{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.sol-perks span{font-family:var(--font-m);font-size:.78rem;font-weight:700;letter-spacing:.04em;padding:9px 14px;border-radius:99px;border:1.5px solid rgba(20,241,149,.5);background:rgba(20,241,149,.08);color:#C8FBE6}
+.sol-src{display:block;margin-top:18px;font-size:.8rem;color:#8D90B8}
+.sol-src a{color:#C8FBE6}
+@media (max-width:900px){.sol-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.sol-band{margin-inline:8px}}
+
 /* vet partner */
 .vet{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:center;background:var(--ink);color:#fff;border:3px solid var(--ink);border-radius:36px;box-shadow:8px 8px 0 var(--red);padding:clamp(24px,5vw,60px);position:relative;overflow:hidden}
 .vet::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,61,.22),transparent 65%);left:-160px;top:-120px;pointer-events:none}
@@ -439,6 +480,7 @@ footer{padding:50px 0 40px}
     <ul id="menu">
       <li><a href="#story">Story</a></li>
       <li><a href="#about">Meet Dodo</a></li>
+      <li><a href="#watch">Video</a></li>
       <li><a href="#tokenomics">Tokenomics</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#cause">Charity</a></li>
@@ -604,6 +646,31 @@ footer{padding:50px 0 40px}
   </div>
 </section>
 
+<!-- WATCH -->
+<section id="watch" style="padding-top:0">
+  <div class="wrap">
+    <span class="kicker rv">🎬 Dodo on YouTube</span>
+    <h2 class="rv">Saving dogs while <span class="hl hl-mint">building on Solana</span>.</h2>
+    <div class="watch">
+      <div class="vid rv">
+        <div class="vid-in" id="vid">
+          <button type="button" id="vid-play" aria-label="Play the video: CuteDoDo ($DODO): Saving Dogs While Building on Solana?">
+            <img src="https://i.ytimg.com/vi/54PdC2Rh8ec/maxresdefault.jpg" alt="" loading="lazy" width="1280" height="720" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/54PdC2Rh8ec/hqdefault.jpg'">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span>
+            <span class="vid-tag">▶ WATCH THE BREAKDOWN</span>
+          </button>
+        </div>
+      </div>
+      <div class="watch-copy rv">
+        <div class="by"><i aria-hidden="true">▶</i><div>CRYPTO EXPLORER<small>YOUTUBE CHANNEL</small></div></div>
+        <h3>CuteDoDo ($DODO), explained.</h3>
+        <p>New to the pack? This video walks through the real dog behind the token, the mission to help street dogs, and why it lives on Solana.</p>
+        <a class="btn" href="https://youtu.be/54PdC2Rh8ec" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ECOSYSTEM -->
 <section class="eco-band" id="ecosystem">
   <div class="wrap">
@@ -648,8 +715,32 @@ footer{padding:50px 0 40px}
   </div>
 </section>
 
+<!-- WHY SOLANA -->
+<section class="sol-band" id="solana">
+  <svg class="sol-wave" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient></defs>
+    <path stroke="url(#sg)" d="M0,150 C200,40 380,200 600,110 S980,20 1200,90"/>
+    <path stroke="url(#sg)" d="M0,180 C240,90 420,220 640,140 S1000,60 1200,130" opacity=".6"/>
+  </svg>
+  <div class="wrap">
+    <span class="kicker rv">⚡ Why Solana</span>
+    <h2 class="rv">Dodo runs on one of the <span class="grad">fastest chains on earth</span>.</h2>
+    <p class="lede rv">Solana handles thousands of transactions every second, so a $DODO swap confirms in about a second and costs a tiny fraction of a cent.</p>
+    <div class="sol-stats rv">
+      <div class="sol-stat"><strong data-count="565" data-suffix="B+">565B+</strong><span>Total transactions to date</span></div>
+      <div class="sol-stat"><strong data-count="1972" data-suffix="">1,972</strong><span>Transactions per second</span></div>
+      <div class="sol-stat"><strong data-count="50" data-suffix="M">50M</strong><span>Monthly active addresses</span></div>
+      <div class="sol-stat"><strong data-count="3.5" data-suffix="B" data-dec="1">3.5B</strong><span>Monthly transactions</span></div>
+    </div>
+    <div class="sol-perks rv">
+      <span>Swaps confirm in ~1 second</span><span>Fees under 1 cent</span><span>Phantom &amp; Solflare ready</span><span>Jupiter routing</span>
+    </div>
+    <small class="sol-src">Network figures from <a href="https://solana.com/" target="_blank" rel="noopener">solana.com</a>, November 2026.</small>
+  </div>
+</section>
+
 <!-- ROADMAP -->
-<section id="roadmap" style="padding-top:0">
+<section id="roadmap">
   <div class="wrap">
     <span class="kicker rv">🗺️ The master paw plan</span>
     <h2 class="rv">The plan, <span class="hl">paw by paw</span>.</h2>
@@ -1023,6 +1114,32 @@ footer{padding:50px 0 40px}
     d.innerHTML = `<span class="pct">${p}</span><div style="min-width:0"><b>${n} <span style="font-weight:500;color:var(--ink-2)">&middot; ${loc}</span></b><small>${a}</small></div><div class="wal-act"><button type="button" data-copy="${a}" aria-label="Copy ${n} address">Copy</button><a href="https://solscan.io/account/${a}" target="_blank" rel="noopener" aria-label="${n} on Solscan">Scan</a></div>`;
     wl.appendChild(d);
   });
+
+  // youtube: load the player only when asked
+  const vidBtn = document.getElementById("vid-play");
+  vidBtn.addEventListener("click", () => {
+    const f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/54PdC2Rh8ec?autoplay=1&rel=0";
+    f.title = "CuteDoDo ($DODO): Saving Dogs While Building on Solana?";
+    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    f.allowFullscreen = true;
+    f.referrerPolicy = "strict-origin-when-cross-origin";
+    document.getElementById("vid").replaceChildren(f);
+  });
+
+  // solana stat count-up
+  const counters = document.querySelectorAll("[data-count]");
+  const showCount = (el, v) => { const d = +(el.dataset.dec || 0); el.textContent = v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }) + el.dataset.suffix; };
+  if (!reduce.matches) {
+    counters.forEach(el => showCount(el, 0));
+    const co = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return; co.unobserve(en.target);
+      const el = en.target, end = +el.dataset.count, t0 = performance.now();
+      const step = now => { const p = Math.min((now - t0) / 1600, 1), e = 1 - Math.pow(1 - p, 3); showCount(el, end * e); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    }), { threshold: .5 });
+    counters.forEach(el => co.observe(el));
+  }
 
   // live market data
   const fmt = (n, d = 1) => n >= 1e9 ? "$" + (n / 1e9).toFixed(d) + "B" : n >= 1e6 ? "$" + (n / 1e6).toFixed(d) + "M" : n >= 1e3 ? "$" + (n / 1e3).toFixed(d) + "K" : "$" + n.toFixed(0);
