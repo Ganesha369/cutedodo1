@@ -83,17 +83,31 @@ section{padding:clamp(70px,10vw,120px) 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-d);font-weight:800;font-size:1.25rem}
 .brand img{width:40px;height:40px;border-radius:12px;object-fit:cover;object-position:50% 25%;border:2px solid var(--ink)}
 .brand small{font-family:var(--font-m);font-size:.7rem;background:var(--gold);padding:2px 6px;border-radius:6px;border:1.5px solid var(--ink)}
-.nav ul{display:flex;gap:4px;list-style:none}
-.nav ul a{text-decoration:none;font-weight:600;padding:9px 12px;border-radius:12px;font-size:.95rem;transition:background .2s}
+.nav ul{display:flex;gap:2px;list-style:none}
+.nav ul a{text-decoration:none;font-weight:600;padding:9px 10px;border-radius:12px;font-size:.9rem;white-space:nowrap;transition:background .2s}
 .nav ul a:hover{background:var(--bg-2)}
 .nav .btn{padding:10px 16px;box-shadow:3px 3px 0 var(--ink)}
 .menu-btn{display:none;width:46px;height:46px;border-radius:12px;border:2px solid var(--ink);background:var(--gold)}
-@media (max-width:980px){
+
+/* community dropdown */
+.has-dropdown{position:relative;display:flex;align-items:center}
+.has-dropdown>a{display:flex;align-items:center;gap:6px}
+.has-dropdown>a svg{width:12px;height:12px;transition:transform .2s;flex:none}
+.nav ul.dropdown{display:none;flex-direction:column;list-style:none;position:absolute;top:calc(100% + 8px);left:0;min-width:180px;background:var(--card);border:2.5px solid var(--ink);border-radius:16px;padding:8px;box-shadow:var(--shadow);gap:0;z-index:50}
+.has-dropdown:hover>.dropdown,.has-dropdown:focus-within>.dropdown{display:flex}
+.has-dropdown:hover>a svg,.has-dropdown:focus-within>a svg{transform:rotate(180deg)}
+.nav ul.dropdown li{width:100%}
+.nav ul.dropdown li a{display:block;white-space:nowrap}
+@media (max-width:1140px){
   .nav ul{display:none;position:absolute;top:calc(100% + 10px);left:16px;right:16px;flex-direction:column;background:var(--card);border:2.5px solid var(--ink);border-radius:20px;padding:10px;box-shadow:var(--shadow)}
   .nav ul.open{display:flex}
   .nav ul a{display:block;padding:14px}
   .menu-btn{display:inline-flex;align-items:center;justify-content:center}
   .nav .nav-buy{display:none}
+  .has-dropdown{position:static}
+  .nav ul.dropdown{position:static;box-shadow:none;border:none;padding:0 0 0 14px;background:transparent}
+  .has-dropdown:hover>.dropdown,.has-dropdown:focus-within>.dropdown{display:flex}
+  .has-dropdown>a svg{display:none}
 }
 
 /* hero */
@@ -561,6 +575,67 @@ footer{background:var(--ink);color:#E1E4FF;margin-top:20px;padding:clamp(50px,7v
 }
 
 
+.social-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.social-buttons svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.twitter-btn {
+  background: #000;
+  border: 1px solid #333;
+}
+
+.discord-btn {
+  background: #5865F2;
+  border: 1px solid #5865F2;
+}
+
+.youtube-btn {
+  background: #FF0000;
+  border: 1px solid #FF0000;
+}
+
+.social-buttons .btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.15);
+}
+
+
+.stake-btn {
+  background: #00d084;
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 0 #000;
+}
+
+.stake-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 #000;
+}
+
+
+
 
 </style>
 </head>
@@ -580,6 +655,15 @@ footer{background:var(--ink);color:#E1E4FF;margin-top:20px;padding:clamp(50px,7v
       <li><a href="#watch">Video</a></li>
       <li><a href="#tokenomics">Tokenomics</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
+      <li class="has-dropdown">
+        <a href="#socialmedia">Community <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown">
+          <li><a href="https://t.me/+pjv_zrm5Cjc1MWNl" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://x.com/CuteDODO_018" target="_blank" rel="noopener">X</a></li>
+          <li><a href="https://discord.gg/9f7bBxgRS9" target="_blank" rel="noopener">Discord</a></li>
+          <li><a href="https://youtu.be/54PdC2Rh8ec" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </li>
       <li><a href="#cause">Charity</a></li>
       <li><a href="#vet">Vet care</a></li>
       <li><a href="#whitepaper">Whitepaper</a></li>
@@ -620,8 +704,12 @@ footer{background:var(--ink);color:#E1E4FF;margin-top:20px;padding:clamp(50px,7v
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Buy $DODO</a>
           <a class="btn btn-gold" href="assets/CuteDoDo-Whitepaper-v2.3.pdf" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Whitepaper v2.3</a>
-          <a class="btn" href="https://t.me/+pjv_zrm5Cjc1MWNl" target="_blank" rel="noopener">Join the pack</a>
-          
+<a class="btn" href="https://t.me/+pjv_zrm5Cjc1MWNl" target="_blank" rel="noopener">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 8px;">
+    <path d="M21.9 3.2 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.5l-5-1.6c-1.1-.3-1.1-1.1.2-1.6L20.8 2.7c.9-.3 1.6.2 1.1 1.5Z"/>
+  </svg>
+  Join the pack
+</a>          
             <a class="btn twitter-btn"
    href="https://x.com/CuteDODO_018"
    target="_blank"
@@ -634,6 +722,41 @@ footer{background:var(--ink);color:#E1E4FF;margin-top:20px;padding:clamp(50px,7v
   </svg>
   Twitter
 </a>
+
+          <a class="btn discord-btn"
+     href="https://discord.gg/9f7bBxgRS9"
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M19.7 5.2A19.5 19.5 0 0 0 14.9 3.7l-.6 1.2a18 18 0 0 0-4.6 0l-.6-1.2a19.5 19.5 0 0 0-4.8 1.5C1.3 9.7.5 14.1.9 18.5a19.4 19.4 0 0 0 5.9 3l1.3-2.1-2-1c.2-.2.4-.3.6-.5 3.8 1.8 7.9 1.8 11.7 0l.6.5-2 1 1.3 2.1a19.4 19.4 0 0 0 5.9-3c.5-5.1-.8-9.5-4.5-13.3ZM8.5 15.3c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm7 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>
+    Discord
+  </a>
+
+  <a class="btn youtube-btn"
+     href="https://youtu.be/54PdC2Rh8ec"
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+    YouTube
+  </a>
+
+
+  <a class="btn stake-btn"
+   href="https://stake.smithii.io/cutedodo"
+   target="_blank"
+   rel="noopener">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="18" height="18"
+       viewBox="0 0 24 24"
+       fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round"
+       stroke-linejoin="round">
+    <path d="M12 2v20"/>
+    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+  </svg>
+  Stake $DODO
+</a>
+
+
+
+
 
 
         </div>
